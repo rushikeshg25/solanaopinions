@@ -1,23 +1,34 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { PriceChart } from "@/components/charts/price-chart";
 import { MarketStats } from "@/components/markets/market-stats";
 import { MarketHeader } from "@/components/markets/market-header";
 import { TradingPanel } from "@/components/markets/trading-panel";
 import { markets } from "@/lib/data/markets";
 import { useMarketData } from "@/hooks/use-market-data";
+import { notFound } from "next/navigation";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default function MarketPage({ params }: { params: { id: string } }) {
-  const market = markets.find(m => m.id === params.id);
+  const market = markets.find((m) => m.id === params.id);
   const { data: priceData } = useMarketData(params.id);
 
   if (!market) {
-    return <div>Market not found</div>;
+    notFound();
   }
+
+  // if (error) {
+  //   return (
+  //     <div className="max-w-7xl mx-auto px-4 py-8">
+  //       <Card className="p-6">
+  //         <div className="text-red-500">
+  //           Error loading market data: {error.message}
+  //         </div>
+  //       </Card>
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
@@ -25,8 +36,14 @@ export default function MarketPage({ params }: { params: { id: string } }) {
         <div className="lg:col-span-2">
           <Card className="p-6">
             <MarketHeader market={market} />
-            <div className="h-[400px]">
+            <div className="h-[400px] relative">
+              {/* {isLoading ? (
+                <div className="absolute inset-0">
+                  <Skeleton className="w-full h-full" />
+                </div>
+              ) : ( */}
               <PriceChart data={priceData} />
+              {/* )} */}
             </div>
           </Card>
         </div>
@@ -38,11 +55,4 @@ export default function MarketPage({ params }: { params: { id: string } }) {
       </div>
     </div>
   );
-}
-
-// This is required for static site generation with dynamic routes
-export async function generateStaticParams() {
-  return markets.map((market) => ({
-    id: market.id,
-  }));
 }
