@@ -1,6 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ArrowRight, TrendingUp } from "lucide-react";
+import {
+  ArrowRight,
+  LineChart,
+  TrendingUp,
+  Trophy,
+  Wallet,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -8,7 +14,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="py-20 px-4">
+      <section className="py-20 px-4 ">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
             Trade Options on Prediction Events
@@ -18,7 +24,7 @@ export default function Home() {
             Join the future of decentralized prediction events.
           </p>
           <div className="flex gap-4 justify-center">
-            <Link href="/markets">
+            <Link href="/events">
               <Button size="lg" className="gap-2">
                 Explore Events <ArrowRight className="h-4 w-4" />
               </Button>
@@ -33,10 +39,10 @@ export default function Home() {
       {/* Featured Events */}
       <section className="py-16 px-4 bg-muted/50">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8">Featured Markets</h2>
+          <h2 className="text-3xl font-bold mb-8">Featured Events</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {featuredMarkets.map((market) => (
-              <Link href={`/markets/${market.id}`} key={market.id}>
+            {featuredEvents.map((market) => (
+              <Link href={`/Events/${market.id}`} key={market.id}>
                 <Card className="p-6 hover:shadow-lg transition-shadow">
                   <div className="flex items-center gap-4 mb-4">
                     <TrendingUp className="h-8 w-8 text-primary" />
@@ -70,14 +76,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* How It Works */}
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold mb-12 text-center">How It Works</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {steps.map((step, index) => (
+            {stepsLanding.map((step, index) => (
               <div key={index} className="text-center">
-                <div className="mb-4 flex justify-center">{step.icon}</div>
+                <div className="mb-4 flex justify-center">
+                  <div className="p-4 rounded-full bg-primary/10">
+                    {step.icon}
+                  </div>
+                </div>
                 <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
                 <p className="text-muted-foreground">{step.description}</p>
               </div>
@@ -89,7 +98,27 @@ export default function Home() {
   );
 }
 
-const featuredMarkets = [
+const stepsLanding = [
+  {
+    icon: <Wallet className="h-8 w-8 text-primary" />,
+    title: "Connect Wallet",
+    description:
+      "Connect your Solana wallet to start trading on prediction Events",
+  },
+  {
+    icon: <LineChart className="h-8 w-8 text-primary" />,
+    title: "Choose Events",
+    description: "Browse and select from various prediction Events",
+  },
+  {
+    icon: <Trophy className="h-8 w-8 text-primary" />,
+    title: "Trade & Earn",
+    description:
+      "Stake your SOL and earn rewards when your predictions are correct",
+  },
+];
+
+const featuredEvents = [
   {
     id: "btc-price-prediction",
     title: "BTC Price > $100k by EOY",
@@ -110,25 +139,5 @@ const featuredMarkets = [
     endDate: "Sep 15, 2024",
     totalPool: 670,
     participants: 189,
-  },
-];
-
-const steps = [
-  {
-    icon: <Image src="/connect.svg" alt="Connect" width={64} height={64} />,
-    title: "Connect Wallet",
-    description:
-      "Connect your Solana wallet to start trading on prediction markets",
-  },
-  {
-    icon: <Image src="/choose.svg" alt="Choose" width={64} height={64} />,
-    title: "Choose Markets",
-    description: "Browse and select from various prediction markets",
-  },
-  {
-    icon: <Image src="/trade.svg" alt="Trade" width={64} height={64} />,
-    title: "Trade & Earn",
-    description:
-      "Stake your SOL and earn rewards when your predictions are correct",
   },
 ];
