@@ -7,4 +7,5 @@ pub struct Candidate {
     pub event_id: u64,
     pub votes: u64,
     pub has_registered: bool,
+    pub total_staked: u64,
 }

@@ -11,16 +11,16 @@ export default function Home() {
       <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Trade Options on Prediction Markets
+            Trade Options on Prediction Events
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Stake your SOL on market predictions and trade options in real-time.
-            Join the future of decentralized prediction markets.
+            Join the future of decentralized prediction events.
           </p>
           <div className="flex gap-4 justify-center">
             <Link href="/markets">
               <Button size="lg" className="gap-2">
-                Explore Markets <ArrowRight className="h-4 w-4" />
+                Explore Events <ArrowRight className="h-4 w-4" />
               </Button>
             </Link>
             <Button variant="outline" size="lg">
@@ -30,7 +30,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Markets */}
+      {/* Featured Events */}
       <section className="py-16 px-4 bg-muted/50">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold mb-8">Featured Markets</h2>
@@ -50,11 +50,17 @@ export default function Home() {
                   <div className="flex justify-between items-center">
                     <div className="text-sm">
                       <span className="text-muted-foreground">Total Pool:</span>
-                      <span className="font-medium ml-2">{market.totalPool} SOL</span>
+                      <span className="font-medium ml-2">
+                        {market.totalPool} SOL
+                      </span>
                     </div>
                     <div className="text-sm">
-                      <span className="text-muted-foreground">Participants:</span>
-                      <span className="font-medium ml-2">{market.participants}</span>
+                      <span className="text-muted-foreground">
+                        Participants:
+                      </span>
+                      <span className="font-medium ml-2">
+                        {market.participants}
+                      </span>
                     </div>
                   </div>
                 </Card>
@@ -71,9 +77,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {steps.map((step, index) => (
               <div key={index} className="text-center">
-                <div className="mb-4 flex justify-center">
-                  {step.icon}
-                </div>
+                <div className="mb-4 flex justify-center">{step.icon}</div>
                 <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
                 <p className="text-muted-foreground">{step.description}</p>
               </div>
@@ -113,7 +117,8 @@ const steps = [
   {
     icon: <Image src="/connect.svg" alt="Connect" width={64} height={64} />,
     title: "Connect Wallet",
-    description: "Connect your Solana wallet to start trading on prediction markets",
+    description:
+      "Connect your Solana wallet to start trading on prediction markets",
   },
   {
     icon: <Image src="/choose.svg" alt="Choose" width={64} height={64} />,
@@ -123,6 +128,7 @@ const steps = [
   {
     icon: <Image src="/trade.svg" alt="Trade" width={64} height={64} />,
     title: "Trade & Earn",
-    description: "Stake your SOL and earn rewards when your predictions are correct",
+    description:
+      "Stake your SOL and earn rewards when your predictions are correct",
   },
 ];
