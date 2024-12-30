@@ -1,3 +1,4 @@
+import { Footer } from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import {
@@ -7,7 +8,6 @@ import {
   Trophy,
   Wallet,
 } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
@@ -20,7 +20,7 @@ export default function Home() {
             Trade Options on Prediction Events
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Stake your SOL on market predictions and trade options in real-time.
+            Stake your SOL on event predictions and trade options in real-time.
             Join the future of decentralized prediction events.
           </p>
           <div className="flex gap-4 justify-center">
@@ -42,7 +42,7 @@ export default function Home() {
           <h2 className="text-3xl font-bold mb-8">Featured Events</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {featuredEvents.map((market) => (
-              <Link href={`/Events/${market.id}`} key={market.id}>
+              <Link href={`/events/${market.id}`} key={market.id}>
                 <Card className="p-6 hover:shadow-lg transition-shadow">
                   <div className="flex items-center gap-4 mb-4">
                     <TrendingUp className="h-8 w-8 text-primary" />
@@ -94,6 +94,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 }

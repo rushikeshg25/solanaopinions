@@ -11,6 +11,7 @@ export function MarketSearch() {
 
   const createQueryString = useCallback(
     (name: string, value: string) => {
+      //@ts-ignore
       const params = new URLSearchParams(searchParams);
       params.set(name, value);
       return params.toString();
@@ -19,7 +20,7 @@ export function MarketSearch() {
   );
 
   const handleSearch = debounce((term: string) => {
-    router.push(`/markets?${createQueryString("q", term)}`);
+    router.push(`/events?${createQueryString("q", term)}`);
   }, 300);
 
   return (

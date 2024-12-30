@@ -1,6 +1,13 @@
 "use client";
 
-import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
+import {
+  Line,
+  LineChart,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
 import { Card } from "@/components/ui/card";
 import { useMemo } from "react";
 
@@ -17,16 +24,16 @@ export function PriceChart({ data: propData }: PriceChartProps) {
         <XAxis
           dataKey="time"
           stroke="#888888"
-          fontSize={12}
+          fontSize={11}
           tickLine={false}
           axisLine={false}
         />
         <YAxis
           stroke="#888888"
-          fontSize={12}
+          fontSize={11}
           tickLine={false}
           axisLine={false}
-          tickFormatter={(value) => `${value} SOL`}
+          tickFormatter={(value) => `${value}  SOL`}
         />
         <Tooltip
           content={({ active, payload }) => {

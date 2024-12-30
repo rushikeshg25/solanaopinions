@@ -9,7 +9,7 @@ export function Footer() {
           <div className="space-y-4">
             <h3 className="text-lg font-semibold">SolanaOptions</h3>
             <p className="text-sm text-muted-foreground">
-              Decentralized prediction markets powered by Solana blockchain.
+              Decentralized prediction events powered by Solana blockchain.
             </p>
             <div className="flex space-x-4">
               <Link
@@ -29,14 +29,14 @@ export function Footer() {
 
           <div className="flex flex-col items-end">
             <div>
-              <h4 className="font-semibold mb-4">Markets</h4>
+              <h4 className="font-semibold mb-4">Events</h4>
               <ul className="space-y-2 text-sm">
                 <li>
                   <Link
-                    href="/markets"
+                    href="/events"
                     className="text-muted-foreground hover:text-primary"
                   >
-                    Browse Markets
+                    Browse Events
                   </Link>
                 </li>
                 <li>
@@ -49,7 +49,7 @@ export function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/markets/trending"
+                    href="/events"
                     className="text-muted-foreground hover:text-primary"
                   >
                     Trending

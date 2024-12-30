@@ -4,14 +4,13 @@ import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { Navbar } from "@/components/navbar";
 import { Toaster } from "@/components/ui/toaster";
-import { Footer } from "@/components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "SolanaOptions - Prediction Markets",
+  title: "SolanaOptions - Prediction Events",
   description:
-    "Stake your SOL on prediction markets and trade options in real-time",
+    "Stake your SOL on prediction events and trade options in real-time",
 };
 
 export default function RootLayout({
@@ -26,7 +25,6 @@ export default function RootLayout({
           <div className="min-h-screen bg-background">
             <Navbar />
             <main>{children}</main>
-            <Footer />
           </div>
           <Toaster />
         </ThemeProvider>

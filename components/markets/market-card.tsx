@@ -11,9 +11,15 @@ interface MarketCardProps {
   participants: number;
 }
 
-export function MarketCard({ id, title, endDate, totalPool, participants }: MarketCardProps) {
+export function MarketCard({
+  id,
+  title,
+  endDate,
+  totalPool,
+  participants,
+}: MarketCardProps) {
   return (
-    <Link href={`/markets/${id}`}>
+    <Link href={`/events/${id}`}>
       <Card className="p-6 hover:shadow-lg transition-shadow">
         <div className="flex items-center gap-4 mb-4">
           <div className="bg-primary/10 p-2 rounded-full">
@@ -21,9 +27,7 @@ export function MarketCard({ id, title, endDate, totalPool, participants }: Mark
           </div>
           <div>
             <h3 className="font-semibold">{title}</h3>
-            <p className="text-sm text-muted-foreground">
-              Ends {endDate}
-            </p>
+            <p className="text-sm text-muted-foreground">Ends {endDate}</p>
           </div>
         </div>
         <div className="flex justify-between items-center">

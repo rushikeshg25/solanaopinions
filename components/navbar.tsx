@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { MoonIcon, SunIcon, Wallet } from "lucide-react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
+import { ModeToggle } from "./theme-toggle";
 
 export function Navbar() {
   const { theme, setTheme } = useTheme();
@@ -19,7 +20,7 @@ export function Navbar() {
           </div>
 
           <div className="flex items-center gap-4">
-            <Link href="/markets">
+            <Link href="/events">
               <Button variant="ghost">Events</Button>
             </Link>
             <Link href="/portfolio">
@@ -29,17 +30,7 @@ export function Navbar() {
               <Wallet className="h-4 w-4" />
               Connect Wallet
             </Button>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            >
-              {theme === "dark" ? (
-                <SunIcon className="h-5 w-5" />
-              ) : (
-                <MoonIcon className="h-5 w-5" />
-              )}
-            </Button>
+            <ModeToggle />
           </div>
         </div>
       </div>

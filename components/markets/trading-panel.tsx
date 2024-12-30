@@ -17,8 +17,12 @@ export function TradingPanel({ marketId }: TradingPanelProps) {
     <Card className="p-6">
       <Tabs defaultValue="yes">
         <TabsList className="w-full">
-          <TabsTrigger value="yes" className="flex-1">Yes</TabsTrigger>
-          <TabsTrigger value="no" className="flex-1">No</TabsTrigger>
+          <TabsTrigger value="yes" className="flex-1">
+            Yes
+          </TabsTrigger>
+          <TabsTrigger value="no" className="flex-1">
+            No
+          </TabsTrigger>
         </TabsList>
         <div className="mt-6">
           <div className="mb-4">
