@@ -8,9 +8,19 @@ describe("contract-options", () => {
 
   const program = anchor.workspace.ContractOptions as Program<ContractOptions>;
 
-  it("Is initialized!", async () => {
-    // Add your test here.
-    const tx = await program.methods.initialize().rpc();
-    console.log("Your transaction signature", tx);
+  it("Initializes the contract", async () => {
+   
+  });
+
+  it("Create an Event", async () => {
+   
+  });
+
+  it("Create an Candidate", async () => {
+   
+  });
+
+  it("Vote", async () => {
+   
   });
 });
