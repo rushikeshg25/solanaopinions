@@ -9,6 +9,15 @@ datasource db {
 
 model User{
   id String @id 
+  events      Event[]    @relation("EventCandidates")
+  balance     Int
+  totalStaked Int
+  isProfit    Boolean
+  PL         Int  //Profit or Loss
   
-  
+}
+
+model Event{
+  id String @id
+  candidates User[]      @relation("EventCandidates")
 }
